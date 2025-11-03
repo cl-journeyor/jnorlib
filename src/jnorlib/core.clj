@@ -22,3 +22,14 @@
   (try
     (not (any? (f)))
     (catch Exception _ true)))
+
+(defn typed
+  "Takes pairs in the form of [Class instance] and throws if an instance does
+  not match its associated type. Returns nil."
+  [& pairs]
+  (doseq [[clazz val] pairs]
+    (when-not (instance? clazz val)
+      (throw (ClassCastException. (str
+                                   (type val)
+                                   " cannot be cast to "
+                                   clazz))))))
