@@ -8,6 +8,13 @@
    (>= (compare c lower) 0)
    (<= (compare c upper) 0)))
 
+(defn find-first
+  "Returns the first item from `coll` that matches the given `pred`."
+  [pred coll]
+  (->> coll
+       (filter pred)
+       first))
+
 (defn matches?
   "Checks whether the string `s` matches against the RegEx Pattern `re`."
   [^String s re]
