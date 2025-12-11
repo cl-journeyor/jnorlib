@@ -23,6 +23,12 @@
       nil?
       not))
 
+(defn slice
+  "Retrieves a sequence from the item number `start` to number `endx`
+  exclusive, from `coll`."
+  [^long start ^long endx coll]
+  (->> coll (drop start) (take (- endx start))))
+
 (defn throws?
   "Invokes the provided `f` to check whether it throws an exception."
   [f]
