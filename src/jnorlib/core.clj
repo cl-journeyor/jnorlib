@@ -15,14 +15,6 @@
        (filter pred)
        first))
 
-(defn matches?
-  "Checks whether the string `s` matches against the RegEx Pattern `re`."
-  [^String s re]
-  (-> (re-matcher re s)
-      re-find
-      nil?
-      not))
-
 (defn slice
   "Retrieves a sequence from the item number `start` to number `endx`
   exclusive, from `coll`."
